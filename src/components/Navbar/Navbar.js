@@ -38,6 +38,9 @@ const NavigationMenu = styled.div`
 const Logo = styled.img`
   max-width: 200px;
   height: auto;
+  @media screen and (max-width: 600px) {
+    max-width: 150px;
+  }
 `;
 
 const User = styled.img`

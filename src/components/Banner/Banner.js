@@ -3,6 +3,7 @@ import banner from '../../assets/banner-background.jpg';
 
 export const Banner = styled.div`
   height: 400px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -21,4 +22,7 @@ export const BannerImg = styled.img`
   max-width: 450px;
   height: auto;
   padding: 60px 10px 0px 10px;
+  @media screen and (max-width: 600px) {
+    max-width: 325px;
+  }
 `;

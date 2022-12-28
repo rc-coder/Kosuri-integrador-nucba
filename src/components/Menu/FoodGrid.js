@@ -5,6 +5,13 @@ export const FoodGrid = styled.div`
   grid-template-columns: 1fr 1fr 1fr;
   gap: 20px;
   padding-bottom: 20px;
+  justify-content: center;
+  align-items: center;
+  @media screen and (max-width: 600px) {
+    grid-template-columns: 1fr;
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 export const FoodCard = styled.div`
@@ -38,6 +45,8 @@ export const TypeCard = styled.div`
   flex-direction: column;
   align-items: flex-start;
   padding: 15px;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const TypeName = styled.div`

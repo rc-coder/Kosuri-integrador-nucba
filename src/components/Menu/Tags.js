@@ -13,9 +13,11 @@ export const TagsMenu = styled.div`
   overflow-x: hidden;
   margin: 20px 0;
   padding: 10px 0;
-  /* @media screen and (max-width: 600px) {
+  @media screen and (max-width: 600px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     justify-content: center;
-  } */
+  }
 `;
 
 export const TagCard = styled.div`

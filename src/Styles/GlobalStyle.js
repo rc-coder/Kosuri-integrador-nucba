@@ -2,14 +2,16 @@ import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
 body {
-    font-family: "Lato", sans-serif;
+    font-family: 'Julee', cursive;
     margin: 0;
     height: 100vh;
     background-color: #fafaf8;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 h1, h2, h3 {
-    font-Family: "Montserrat", sans-serif;
+    font-family: 'Julee', cursive;
 }
 
 a {
