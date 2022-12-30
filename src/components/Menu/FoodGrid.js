@@ -45,7 +45,7 @@ export const TypeCard = styled.div`
   flex-direction: column;
   align-items: flex-start;
   padding: 15px;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
 `;
 

@@ -12,10 +12,10 @@ export const PageWrapper = styled.section`
   hr {
     display: block;
     border: none;
-    border-top: 1px solid lightgrey;
+    border-top: 3px solid red;
 
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
   }
 
   font-size: 1rem;
@@ -23,39 +23,25 @@ export const PageWrapper = styled.section`
   max-width: 35em;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 6rem;
+  margin-top: 8rem;
   padding: 1rem 0.75rem;
-  /* margin-top: 62px; */
   background-color: #fff;
   border-radius: 15px;
-  width: 400px;
+  height: 100%;
+  width: 50%;
   box-shadow: 0 6px 10px 0 rgba(128, 98, 96, 0.16);
-  overflow-y: hidden;
+  @media screen and (max-width: 600px) {
+    height: 90%;
+    width: 90%;
+    margin-top: 6rem;
+  }
 `;
 
 export const FormContent = styled.div`
-  padding: 24px 32px 15px;
+  padding: 10px 20px;
   border-radius: 15px 15px;
   background-color: #fff;
-`;
-
-export const CodeWrapper = styled.pre`
-  font-family: monospace;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  background-color: hsl(210, 4%, 96%);
-  overflow: auto;
-  padding: 0.75rem;
-  margin: 0;
-  border-radius: 4px;
-
-  & strong {
-    margin-top: 1.5rem;
-
-    &:first-child {
-      margin-top: 0;
-    }
-  }
+  height: 50%;
 `;
 
 export const Title = styled.h1`
@@ -80,7 +66,7 @@ export const Input = styled(Field)`
   font-weight: 400;
   width: 100%;
   margin-top: 0.5rem;
-  padding: 0.75rem 0.75rem;
+  padding: 0.5rem 0.5rem;
 
   &:focus,
   &:active {
@@ -158,12 +144,13 @@ export const StyledInlineErrorMessage = styled.div`
 
 export const Submit = styled.button`
   font-weight: 700;
-  z-index: 999;
+  font-family: 'Julee', cursive;
+  font-size: 16px;
   border: none;
   margin: ${({ m }) => (m ? `${m}` : '10px')};
   color: white;
   height: 20px;
-  border-radius: 8px;
+  border-radius: 4px;
   padding: 20px;
   width: ${({ w }) => (w ? `${w}` : '200px')};
   display: flex;
@@ -185,14 +172,26 @@ export const Submit = styled.button`
 export const ButtonsContainer = styled.div`
   display: flex;
   align-items: center;
+  justify-content: space-around;
+  padding: 10px;
+  @media screen and (max-width: 600px) {
+    flex-direction: column;
+  }
+`;
+
+export const ToggleTextContainer = styled.div`
+  display: flex;
+  align-items: center;
   justify-content: center;
   padding: 10px;
+  text-align: center;
 `;
 
 export const GoogleButton = styled(Submit)`
   display: flex;
   justify-content: space-between;
   background-image: linear-gradient(130deg, #ff9259 0%, #ff2426 70%);
+  font-family: 'Julee', cursive;
 `;
 
 export const GoogleIcon = styled.img`

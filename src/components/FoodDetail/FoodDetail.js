@@ -6,22 +6,27 @@ import { Red } from '../../Styles/utilities';
 import { formatPrice } from '../../Utils';
 
 const Dialog = styled.div`
-  width: 500px;
+  width: 450px;
   background-color: white;
   position: fixed;
-  top: 150px;
+  top: 30%;
   z-index: 5;
   max-height: calc(100% - 100px);
   left: calc(50% - 250px);
   display: flex;
   flex-direction: column;
   border-radius: 8px;
+  @media screen and (max-width: 600px) {
+    width: 80%;
+    left: 10%;
+  }
 `;
 
 const DialogBanner = styled.div`
-  min-height: 150px;
-  margin-bottom: 20px;
+  min-height: 120px;
+  margin-bottom: 10px;
   ${({ img }) => `background-image: url(${img})`};
+  background-color: #ff0038;
   background-position: center;
   background-size: cover;
   border-radius: 8px 8px 0px 0px;
@@ -33,7 +38,7 @@ const DialogBannerName = styled.div`
   position: absolute;
   background-color: rgba(255, 255, 255, 0.7);
   padding: 5px;
-  font-size: 15px;
+  font-size: 20px;
   top: 75px;
   padding: 5px 10px;
 `;
@@ -49,7 +54,7 @@ export const DialogShadow = styled.div`
 
 export const DialogContent = styled.div`
   overflow: auto;
-  min-height: 100px;
+  min-height: 60px;
   max-height: 500px;
   padding: 40px;
 `;

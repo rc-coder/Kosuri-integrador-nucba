@@ -35,6 +35,7 @@ export const Menu = () => {
           </TagContainer>
         ))}
       </TagsMenu>
+      {section && <TagCard onClick={() => setSection(null)}>Volver</TagCard>}
       {section ? (
         <>
           <SectionName>

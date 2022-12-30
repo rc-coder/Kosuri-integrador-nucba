@@ -6,6 +6,7 @@ import platterLogo from '../../assets/waiter.png';
 import { showCart } from '../../redux/features/cart/cartSlice';
 import { toggleMenu } from '../../redux/features/user/userSlice';
 import { UserMenu } from '../UserMenu/UserMenu';
+import userIcon from '../../assets/user.png';
 
 const fixed = ({ x = 0, y = 0, yProp = 'top', xProp = 'left' } = {}) => {
   return css`
@@ -24,7 +25,7 @@ const NavbarStyled = styled.div`
   background: #fff;
   width: 100%;
   z-index: 999;
-  border-bottom: 1px solid #e5edef;
+  border-bottom: 3px solid #e5edef;
 `;
 
 const NavigationMenu = styled.div`
@@ -33,6 +34,9 @@ const NavigationMenu = styled.div`
   padding: 15px;
   align-self: flex-end;
   margin-right: 20px;
+  @media screen and (max-width: 600px) {
+    max-width: 150px;
+  }
 `;
 
 const Logo = styled.img`
@@ -53,6 +57,10 @@ const Platter = styled.img`
   width: 35px;
   height: 35px;
   cursor: pointer;
+  @media screen and (max-width: 600px) {
+    width: 30px;
+    height: 30px;
+  }
 `;
 
 const Divider = styled.div`
@@ -65,12 +73,12 @@ const Divider = styled.div`
 export const LoginButton = styled.button`
   cursor: pointer;
   color: #ffffff;
-  border-radius: 8px;
+  border-radius: 5px;
   padding: 10px 15px;
   border: none;
   margin: 0 5px;
-  font-size: 14px;
-  font-family: 'Poppins-SemiBold', Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-family: 'Julee', cursive;
   background-image: linear-gradient(130deg, #ff9259 0%, #ff2426 70%);
 `;
 
@@ -79,6 +87,9 @@ export const WelcomeTitle = styled.div`
   width: 100%;
   padding-bottom: 5px;
   padding: 15px 20px;
+  @media screen and (max-width: 600px) {
+    display: none;
+  }
 `;
 
 const Navbar = () => {
@@ -102,7 +113,7 @@ const Navbar = () => {
         {currentUser ? (
           <>
             <WelcomeTitle>Hola {currentUser.displayName}!</WelcomeTitle>
-            <User onClick={handleUserMenu} />
+            <User src={userIcon} onClick={handleUserMenu} />
             <UserMenu user={currentUser} />
           </>
         ) : (

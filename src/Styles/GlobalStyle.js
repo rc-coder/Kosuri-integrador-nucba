@@ -1,10 +1,12 @@
 import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
+
 body {
+  
     font-family: 'Julee', cursive;
     margin: 0;
-    height: 100vh;
+    height: 100%;
     background-color: #fafaf8;
     width: 100%;
     overflow-x: hidden;

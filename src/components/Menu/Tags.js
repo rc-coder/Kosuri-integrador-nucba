@@ -37,6 +37,7 @@ export const TagCard = styled.div`
     background: #e8e8e8;
     box-shadow: none;
   }
+  width: 60px;
 `;
 
 export const TagImg = styled.div`

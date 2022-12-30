@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import { formatPrice } from '../../Utils';
 import { Link } from 'react-router-dom';
-import { clearCart, showCart } from '../../redux/features/cart/cartSlice';
+import { showCart } from '../../redux/features/cart/cartSlice';
 import {
   ConfirmButton,
   DialogContent,
@@ -14,10 +14,10 @@ import { QuantityManager } from './QuantityManager';
 const OrderStyled = styled.div`
   position: fixed;
   right: 0px;
-  top: 93px;
+  top: 92px;
   width: 340px;
   background-color: white;
-  height: calc(100% - 93px);
+  height: calc(100% - 92px);
   z-index: 10;
   box-shadow: 4px 0px 5px 4px gray;
   display: flex;
@@ -25,6 +25,7 @@ const OrderStyled = styled.div`
   transform: ${({ show }) => (show ? 'translateX(0)' : 'translateX(100%)')};
   transition-property: transform;
   transition-duration: 0.5s;
+  border-left: 2px solid #ff0038;
 `;
 
 const OrderContent = styled(DialogContent)`
@@ -49,6 +50,7 @@ const ItemImg = styled.div`
   width: 46px;
   height: 46px;
   background-image: ${({ img }) => `url(${img})`};
+  background-color: #ff0038;
   background-size: cover;
   display: flex;
   align-items: center;

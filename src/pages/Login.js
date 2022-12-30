@@ -12,6 +12,7 @@ import {
   ButtonsContainer,
   GoogleButton,
   GoogleIcon,
+  ToggleTextContainer,
 } from '../components/LoginForm/LoginForm';
 import GoogleLogo from '../assets/google_icon.svg';
 import {
@@ -126,7 +127,7 @@ const Login = () => {
                       type="text"
                       name="displayName"
                       autoComplete="name"
-                      placeholder="Nombre"
+                      placeholder="Tu nombre"
                     ></Input>
                   </Label>
                 )}
@@ -177,7 +178,7 @@ const Login = () => {
                     Ingresar con Google
                   </GoogleButton>
                 </ButtonsContainer>
-                <ButtonsContainer>
+                <ToggleTextContainer>
                   <span>
                     {!loginMode
                       ? 'Ya tienes una cuenta? '
@@ -186,7 +187,7 @@ const Login = () => {
                   <Alink onClick={() => setLoginMode((prevMode) => !prevMode)}>
                     {!loginMode ? 'Ingresa aqui' : 'Registrate aqui'}
                   </Alink>
-                </ButtonsContainer>
+                </ToggleTextContainer>
               </Form>
             );
           }}
