@@ -3,11 +3,11 @@ import { createGlobalStyle } from 'styled-components';
 export const GlobalStyle = createGlobalStyle`
 
 body {
-  
+    box-sizing: border-box;
     font-family: 'Julee', cursive;
     margin: 0;
     height: 100%;
-    background-color: #fafaf8;
+    background-color: #dbdbdb;
     width: 100%;
     overflow-x: hidden;
 }

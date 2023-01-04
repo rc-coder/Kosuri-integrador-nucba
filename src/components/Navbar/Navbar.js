@@ -92,9 +92,28 @@ export const WelcomeTitle = styled.div`
   }
 `;
 
+const ItemCount = styled.div`
+  position: absolute;
+  font-size: 15px;
+  font-weight: bold;
+  bottom: 20px;
+  color: #ff0038;
+  border: 1px solid black;
+  padding: 1px;
+  margin-left: 31px;
+  border-radius: 50px;
+  /* right: 270px; */
+  @media screen and (max-width: 600px) {
+    /* right: 113px; */
+  }
+`;
+
 const Navbar = () => {
   const { currentUser } = useSelector((state) => state.user);
   const dispatch = useDispatch();
+  const totalItems = useSelector((state) =>
+    state.cart.cartItems.reduce((acc, cartItem) => acc + cartItem.quantity, 0)
+  );
   const handleCart = () => {
     dispatch(showCart());
   };
@@ -108,8 +127,14 @@ const Navbar = () => {
         <Logo src={KosuriLogo} />
       </Link>
       <NavigationMenu>
-        <Platter src={platterLogo} onClick={handleCart} />
-        <Divider />
+        {totalItems > 0 && (
+          <>
+            <Platter src={platterLogo} onClick={handleCart} />
+            <ItemCount>{totalItems}</ItemCount>
+            <Divider />
+          </>
+        )}
+
         {currentUser ? (
           <>
             <WelcomeTitle>Hola {currentUser.displayName}!</WelcomeTitle>

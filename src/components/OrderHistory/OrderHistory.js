@@ -4,47 +4,42 @@ import { status } from '../../Styles/utilities';
 import { formatDate, formatPrice } from '../../Utils';
 import { CustomButton } from '../UI';
 
-const Container = styled.div`
-  width: 70%;
-  min-height: 100vh;
-  z-index: 10;
-
-  @media screen and (max-width: 600px) {
-    width: 100%;
-  }
-`;
-
 const OrdersContainer = styled.div`
-  width: 100%;
-  background-color: #0000003d;
+  box-sizing: border-box;
+  width: 90%;
+  background-color: #474747;
   border-radius: 20px;
   padding: 30px;
   backdrop-filter: blur(20px);
   color: white;
+  margin-top: 8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 
   @media screen and (max-width: 600px) {
-    padding: 0;
+    padding: 5px;
+    margin-top: 6rem;
   }
-`;
-
-const Wrapper = styled.div`
-  max-width: 1000px;
-  margin-top: 100px;
 `;
 
 const OrderTitle = styled.div`
   padding-bottom: 20px;
-  border-bottom: 1px solid #e5edef;
+  border-bottom: 3px solid #ff0038;
   margin-bottom: 20px;
+  width: 90%;
+  @media screen and (max-width: 600px) {
+    text-align: center;
+  }
 `;
 
 const OrderContent = styled.div`
-  height: 200px;
   background-color: #fff;
-  border: 1px solid #e5edef;
+  border: 1px solid #ff0038;
   border-radius: 8px;
   margin-bottom: 30px;
-  overflow: hidden;
+  width: 100%;
   height: auto;
   display: flex;
   align-items: center;
@@ -54,8 +49,7 @@ const OrderContent = styled.div`
 
 const OrderDetails = styled.div`
   width: 100%;
-  padding: 30px;
-  position: relative;
+  padding: 20px;
   display: flex;
   justify-content: space-between;
   gap: 10px;
@@ -68,16 +62,9 @@ const OrderDetails = styled.div`
 const Status = styled.div`
   padding: 8px 18px;
   border-radius: 0 8px;
-  font-family: Poppins-SemiBold, Helvetica, Arial, sans-serif;
+  font-family: 'Julee', cursive;
   text-align: center;
   ${({ type }) => status(type)}
-`;
-
-const Flex = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
 `;
 
 const OrderUl = styled.div`
@@ -107,7 +94,9 @@ const OrderSpan = styled.span`
 `;
 
 const StatusContainerStyled = styled.div`
-  display: flex;
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 12px;
   justify-content: center;
   align-items: center;
 `;
@@ -115,46 +104,40 @@ const StatusContainerStyled = styled.div`
 export const OrderHistory = ({ orders }) => {
   let url = useLocation().pathname;
   return (
-    <Container>
-      <OrdersContainer>
-        <Wrapper>
-          <OrderTitle>
-            <h2>Mis Últimos pedidos</h2>
-            <p>
-              Haz seguimiento al detalle de tus pedidos anteriores y solicita
-              ayuda si hay algún inconveniente con una de tus compras.
-            </p>
-          </OrderTitle>
-          <div>
-            {orders.map((order) => (
-              <OrderContent key={order.id}>
-                <OrderDetails>
-                  <OrderUl>
-                    <OrderLi>
-                      <OrderSpan>Fecha:</OrderSpan>
-                      {formatDate(new Date(order.createdAt.seconds))}
-                    </OrderLi>
-                    <OrderLi>
-                      <OrderSpan>Total:</OrderSpan>
-                      {formatPrice(order.total)}
-                    </OrderLi>
-                  </OrderUl>
-                  <StatusContainerStyled>
-                    <Status type={order.status}>{order.status}</Status>
-                  </StatusContainerStyled>
-                  <Flex>
-                    <Link to={`${url}/${order.id}`}>
-                      <CustomButton w="150px" m="0">
-                        Ver Detalles
-                      </CustomButton>
-                    </Link>
-                  </Flex>
-                </OrderDetails>
-              </OrderContent>
-            ))}
-          </div>
-        </Wrapper>
-      </OrdersContainer>
-    </Container>
+    <OrdersContainer>
+      <OrderTitle>
+        <h2>Mis últimos pedidos</h2>
+        <p>
+          Haz seguimiento al detalle de tus pedidos anteriores y solicita ayuda
+          si hay algún inconveniente con una de tus compras.
+        </p>
+      </OrderTitle>
+      <div>
+        {orders.map((order) => (
+          <OrderContent key={order.id}>
+            <OrderDetails>
+              <OrderUl>
+                <OrderLi>
+                  <OrderSpan>Fecha:</OrderSpan>
+                  {formatDate(new Date(order.createdAt.seconds))}
+                </OrderLi>
+                <OrderLi>
+                  <OrderSpan>Total:</OrderSpan>
+                  {formatPrice(order.total)}
+                </OrderLi>
+              </OrderUl>
+              <StatusContainerStyled>
+                <Status type={order.status}>{order.status}</Status>
+                <Link to={`${url}/${order.id}`}>
+                  <CustomButton w="100px" m="0">
+                    Ver Detalles
+                  </CustomButton>
+                </Link>
+              </StatusContainerStyled>
+            </OrderDetails>
+          </OrderContent>
+        ))}
+      </div>
+    </OrdersContainer>
   );
 };

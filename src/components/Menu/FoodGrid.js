@@ -23,8 +23,8 @@ export const FoodCard = styled.div`
   /* background-image: ${({ img }) => `url(${img})`};
   background-position: center;
   background-size: cover; */
-  background-color: rgba(255, 255, 255, 0.2);
-  filter: contrast(75%);
+  background-color: #fff;
+  /* filter: contrast(75%); */
   padding: 10px;
   margin-top: 5px;
   color: black;
@@ -32,6 +32,7 @@ export const FoodCard = styled.div`
   transition-property: box-shadow margin-top;
   transition-duration: 0.1s;
   box-shadow: 0px 0px 2px 0px gray;
+
   &:hover {
     cursor: pointer;
     filter: contrast(100%);

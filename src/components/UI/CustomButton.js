@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components';
 import { Red } from '../../Styles/utilities';
 
 export const CustomButton = styled.button`
+  font-family: 'Julee', cursive;
   font-weight: 700;
   z-index: 999;
   border: none;
@@ -19,7 +20,7 @@ export const CustomButton = styled.button`
   ${({ disabled }) =>
     disabled &&
     css`
-      background: #ccc !important;
+      background: #ff0038 !important;
       color: #fff;
       border: 1px rgb(184, 182, 182) solid;
       cursor: not-allowed !important;

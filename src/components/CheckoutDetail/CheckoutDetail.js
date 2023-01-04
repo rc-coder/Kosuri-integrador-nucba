@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { formatPrice } from '../../Utils';
-import { CustomButton } from '../UI';
+import { ButtonsContainer, Submit } from '../LoginForm/LoginForm';
 
 export const DetailContainer = styled.div`
   max-width: 660px;
@@ -68,9 +68,9 @@ export const CheckoutDetail = ({ isValid, envio, subTotal }) => {
             <h4>Total</h4>
             <h4>{formatPrice(envio + subTotal)}</h4>
           </TotalDetail>
-          <CustomButton type="submit" w="100%" m="0px" disabled={isValid}>
-            Pagar
-          </CustomButton>
+          <ButtonsContainer>
+            <Submit>Pagar</Submit>
+          </ButtonsContainer>
         </DetailContent>
       </DetailStyled>
     </DetailContainer>

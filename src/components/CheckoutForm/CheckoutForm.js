@@ -39,7 +39,6 @@ const CheckoutForm = () => {
 
   return (
     <PageWrapper>
-      <hr />
       <FormContent>
         <Formik
           initialValues={{ domicilio: '', localidad: '' }}

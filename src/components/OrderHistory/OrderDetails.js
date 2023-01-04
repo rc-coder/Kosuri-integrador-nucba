@@ -4,28 +4,18 @@ import styled from 'styled-components';
 import { status } from '../../Styles/utilities';
 import { CustomButton } from '../UI';
 
-const Container = styled.div`
-  width: 70%;
-  z-index: 10;
-  padding: 20px 0;
-
-  @media screen and (max-width: 650px) {
-    width: 100%;
-  }
-`;
-
 const OrderContainer = styled.div`
-  width: 100%;
-  /* En dark mode sería así background-color: #0000003d; */
-  /* En dark mode seria así color: white; */
+  width: 90%;
   background-color: #fafafa;
   color: black;
   border-radius: 20px;
   backdrop-filter: blur(20px);
   padding: 20px;
+  margin-top: 8.5rem;
 
   @media screen and (max-width: 650px) {
     padding: 0;
+    margin-top: 6.5rem;
   }
 `;
 
@@ -58,7 +48,7 @@ const Status = styled.div`
 
 const HeaderDetail = styled.div`
   display: flex;
-  border-bottom: 1px solid #e5edef;
+  border-bottom: 3px solid #ff0038;
   padding: 20px 0;
   justify-content: flex-start;
   align-items: center;
@@ -77,7 +67,8 @@ const VolverButtonStyled = styled(Link)`
 `;
 
 const ProductDetail = styled.div`
-  padding: 20px 10px;
+  padding: 20px 30px;
+  border-bottom: 3px solid #ff0038;
 
   h3 {
     margin-bottom: 10px;
@@ -101,6 +92,7 @@ const ItemImg = styled.div`
   height: 60px;
   background-image: ${({ img }) => `url(${img})`};
   background-size: cover;
+  background-color: #ff0038;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -124,7 +116,7 @@ const Quantity = styled.span`
 
 const CostDetail = styled.div`
   border-top: 1px solid #e5edef;
-  padding: 20px 10px;
+  padding: 20px 30px;
 `;
 
 const CostLi = styled.li`
@@ -140,64 +132,64 @@ export const OrderDetails = () => {
   let [order] = orders.filter((order) => order.id === orderId);
 
   return (
-    <Container>
-      <OrderContainer>
-        <HeaderDetail>
-          <VolverButtonStyled to={'/ordenes-historial'}>
-            <CustomButton w="60px">Volver</CustomButton>
-          </VolverButtonStyled>
-          <TitleContainerStyled>
-            <h3>Detalles</h3>
-            <p>Orden: {orderId}</p>
-          </TitleContainerStyled>
-          <StatusContainerStyled>
-            <Status type={order.status}>{order.status}</Status>
-          </StatusContainerStyled>
-        </HeaderDetail>
-        <ProductDetail>
-          <h3>Productos</h3>
-          <ProductUl>
-            {order.items.map((item) => (
-              <ProductLi key={item.id}>
-                <ItemImg img={item.img} />
-                <ProductsInfo>
-                  <p>
-                    {item.name} - {item.description}
-                  </p>
-                </ProductsInfo>
-                <PriceDetail>
-                  <Quantity>{item.quantity}U</Quantity>
+    <OrderContainer>
+      <HeaderDetail>
+        <VolverButtonStyled to={'/ordenes-historial'}>
+          <CustomButton w="60px">Volver</CustomButton>
+        </VolverButtonStyled>
+        <TitleContainerStyled>
+          <h3>Detalles</h3>
+          <p>Orden: {orderId}</p>
+        </TitleContainerStyled>
+        <StatusContainerStyled>
+          <Status type={order.status}>{order.status}</Status>
+        </StatusContainerStyled>
+      </HeaderDetail>
+      <ProductDetail>
+        <h3>Productos</h3>
+        <ProductUl>
+          {order.items.map((item) => (
+            <ProductLi key={item.id}>
+              <ItemImg img={item.img} />
+              <ProductsInfo>
+                <p>{item.name}</p>
+
+                <p>{item.description}</p>
+              </ProductsInfo>
+              <PriceDetail>
+                <Quantity>{item.quantity}U</Quantity>
+                <p>
                   <strong>${item.price}</strong>
-                </PriceDetail>
-              </ProductLi>
-            ))}
-          </ProductUl>
-        </ProductDetail>
-        <CostDetail>
-          <h3>Costos</h3>
-          <ProductUl>
-            <CostLi>
-              <span>Costo de los productos </span>
+                </p>
+              </PriceDetail>
+            </ProductLi>
+          ))}
+        </ProductUl>
+      </ProductDetail>
+      <CostDetail>
+        <h3>Costos</h3>
+        <ProductUl>
+          <CostLi>
+            <span>Costo de los productos </span>
 
-              <span>${order.subtotal}</span>
-            </CostLi>
-            <CostLi>
-              <span>Costo de envío </span>
+            <span>${order.subTotal}</span>
+          </CostLi>
+          <CostLi>
+            <span>Costo de envío </span>
 
-              <span>${order.shippingPrice}</span>
-            </CostLi>
-            <CostLi>
-              <span>
-                <strong>Total</strong>
-              </span>
+            <span>${order.shippingPrice}</span>
+          </CostLi>
+          <CostLi>
+            <span>
+              <strong>Total</strong>
+            </span>
 
-              <span>
-                <strong>${order.total}</strong>
-              </span>
-            </CostLi>
-          </ProductUl>
-        </CostDetail>
-      </OrderContainer>
-    </Container>
+            <span>
+              <strong>${order.total}</strong>
+            </span>
+          </CostLi>
+        </ProductUl>
+      </CostDetail>
+    </OrderContainer>
   );
 };

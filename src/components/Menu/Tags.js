@@ -24,7 +24,6 @@ export const TagCard = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #fff;
   background: ${({ selected }) => (selected ? '#e8e8e8' : '#fff')};
   /* color: ${(props) => props.theme.gray}; */
   color: ${backgroundGray};

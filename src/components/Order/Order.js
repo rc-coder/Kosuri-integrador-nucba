@@ -18,7 +18,7 @@ const OrderStyled = styled.div`
   width: 340px;
   background-color: white;
   height: calc(100% - 92px);
-  z-index: 10;
+  z-index: 50;
   box-shadow: 4px 0px 5px 4px gray;
   display: flex;
   flex-direction: column;
@@ -32,6 +32,10 @@ const OrderContent = styled(DialogContent)`
   padding: 20px;
   max-height: 100%;
   height: 100%;
+`;
+
+const OrderShadow = styled(DialogShadow)`
+  z-index: 21;
 `;
 
 const OrderContainer = styled.div`
@@ -73,7 +77,7 @@ export const Order = () => {
 
   return (
     <>
-      {show && <DialogShadow onClick={handlerShow} />}
+      {show && <OrderShadow onClick={handlerShow} />}
       <OrderStyled show={show}>
         {cartItems?.length === 0 ? (
           <OrderContent>Agrega algun plato para verlo aqui.</OrderContent>

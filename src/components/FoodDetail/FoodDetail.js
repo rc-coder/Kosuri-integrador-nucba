@@ -10,7 +10,7 @@ const Dialog = styled.div`
   background-color: white;
   position: fixed;
   top: 30%;
-  z-index: 5;
+  z-index: 20;
   max-height: calc(100% - 100px);
   left: calc(50% - 250px);
   display: flex;
@@ -49,7 +49,7 @@ export const DialogShadow = styled.div`
   width: 100%;
   background-color: black;
   opacity: 0.7;
-  z-index: 4;
+  z-index: 10;
 `;
 
 export const DialogContent = styled.div`

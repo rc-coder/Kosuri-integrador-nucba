@@ -8,7 +8,7 @@ export const UserMenuStyled = styled.div`
   position: absolute;
   top: 5em;
   right: 0;
-  z-index: 12;
+  z-index: 100000000000;
   opacity: 1;
   border-left: 3px solid #ff0038;
   visibility: visible;
